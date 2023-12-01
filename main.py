@@ -1,9 +1,11 @@
 import asyncio
 import logging
+from pprint import pprint
+
 from aiogram import F, types
 from aiogram.filters import Command
-from config import dp, bot
-from pprint import pprint
+
+from config import bot, dp
 
 
 async def on_startup(dispatcher):
@@ -34,7 +36,6 @@ async def cmd_zarplata(message: types.Message):
 
 @dp.message(F.contact)
 async def echo(message: types.Message):
-    # if message.contact is not None:
     kb = types.ReplyKeyboardRemove()
     pprint(message.contact)
     # save to DB message.contact.phone_number and message.contact.user_id
